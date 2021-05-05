@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "205776175527",
+    "firebase_url": "https://moviecredit-b50c2-default-rtdb.firebaseio.com",
+    "project_id": "moviecredit-b50c2",
+    "storage_bucket": "moviecredit-b50c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:205776175527:android:d93aabb519f719734f3682",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "205776175527-fla0sk7uo38iua3v49q4fu2cp3m070ti.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "e77c549a4398d99ccf5f17f476213328d1034bdc"
+          }
+        },
+        {
+          "client_id": "205776175527-lta4v7sab73kdphhu81lgm5jckfpcs1f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAS_8mUnZAH9qn8wwfuiZRhyVM0DBpBHw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "205776175527-lta4v7sab73kdphhu81lgm5jckfpcs1f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

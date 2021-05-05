@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8475fc"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/view_back"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/title_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="마이페이지"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="50dp" />
+
+
+    <TextView
+        android:id="@+id/title_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="일팔청춘님 안녕하세요!"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        app:layout_goneMarginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_welcome"
+        android:layout_marginLeft="30dp" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@drawable/back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintTop_toBottomOf="@+id/title_sub" />
+
+    <View
+        android:id="@+id/view1_back"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@drawable/back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintTop_toBottomOf="@+id/title_sub" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My 한눈에 보기"
+        android:textColor="#8475fc"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintStart_toStartOf="@+id/view1"
+        app:layout_constraintTop_toTopOf="@+id/view1" />
+
+    <TextView
+        android:id="@+id/my_room_btn"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:background="@drawable/back_mypage_item"
+        android:gravity="center"
+        android:text="나의 영화관"
+        android:layout_marginTop="20dp"
+        android:textColor="#8475fc"
+        app:layout_constraintStart_toStartOf="@+id/tv1"
+        app:layout_constraintTop_toBottomOf="@+id/tv1" />
+
+    <TextView
+        android:id="@+id/my_movie_btn"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/back_mypage_item"
+        android:gravity="center"
+        android:text="내가 찜 한 영화"
+        android:textColor="#8475fc"
+        app:layout_constraintStart_toEndOf="@+id/my_room_btn"
+        app:layout_constraintTop_toBottomOf="@+id/tv1" />
+
+    <TextView
+        android:id="@+id/change_btn"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/back_mypage_item2"
+        android:gravity="center"
+        android:text="변경하기"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/view1"
+        app:layout_constraintStart_toEndOf="@+id/my_movie_btn"
+        app:layout_constraintTop_toBottomOf="@+id/tv1" />
+
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@drawable/back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/view1"/>
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My 영화 알림"
+        android:textColor="#8475fc"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/item1"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/back_mypage_item2"
+        android:gravity="center"
+        android:textColor="#8475fc"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/tv2" />
+
+    <TextView
+        android:id="@+id/item2"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/back_mypage_item2"
+        android:gravity="center"
+        android:text="내가 찜 한 영화"
+        android:textColor="#8475fc"
+        android:layout_marginRight="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/tv2" />
+
+    <TextView
+        android:id="@+id/item_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="상영마감예정"
+        android:textColor="#8475fc"
+        android:textSize="16sp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintEnd_toEndOf="@+id/item1"
+        app:layout_constraintStart_toStartOf="@+id/item1"
+        app:layout_constraintTop_toBottomOf="@+id/item1" />
+
+    <TextView
+        android:id="@+id/item_tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="개봉 예정"
+        android:textColor="#8475fc"
+        android:textSize="16sp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintEnd_toEndOf="@+id/item2"
+        app:layout_constraintStart_toStartOf="@+id/item2"
+        app:layout_constraintTop_toBottomOf="@+id/item2" />
+
+    <TextView
+        android:id="@+id/explain_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="일팔 청춘님은 지금 'BEST 무비크레딧 회원입니다'"
+        android:textColor="#8475fc"
+        android:textSize="18sp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view_back" />
+
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:thumb="@drawable/seekbar_custom"
+        android:progressDrawable="@drawable/seekbar_back"
+        app:layout_constraintBottom_toBottomOf="@+id/view_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:progress="50"
+        app:layout_constraintTop_toBottomOf="@+id/explain_tv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
