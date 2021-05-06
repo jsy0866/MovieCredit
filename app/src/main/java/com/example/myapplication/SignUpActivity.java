@@ -1,12 +1,13 @@
 package com.example.myapplication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,34 +22,32 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         mAuth = FirebaseAuth.getInstance();
-
         findViewById(R.id.register_btn).setOnClickListener(onClickListener);
     }
 
-    View.OnClickListener onClickListener = new
-            View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    switch (v.getId()) {
-                        case R.id.register_btn:
-                            signUp();
-                            break;
-                    }
-                }
-            };
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.register_btn:
+                    signUp();
+                    break;
+            }
+        }
+
+    };
 
     private void signUp() {
         String id =
                 ((EditText) findViewById(R.id.id_et)).getText().toString();
         String password =
                 ((EditText) findViewById(R.id.pw_et)).getText().toString();
-        String passwordcheck =
+        String passwordCheck =
                 ((EditText) findViewById(R.id.pw_check_et)).getText().toString();
-        if (id.length() > 0 && password.length() > 0 && passwordcheck.length() > 0) {
-            if (password.equals(passwordcheck)) {
+        if (id.length() > 0 && password.length() > 0 && passwordCheck.length() > 0) {
+            if (password.equals(passwordCheck)) {
                 mAuth.createUserWithEmailAndPassword(id, password)
-                        .addOnCompleteListener(this, new
-                                OnCompleteListener<AuthResult>() {
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
 

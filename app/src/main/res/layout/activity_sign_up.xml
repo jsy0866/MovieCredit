@@ -74,7 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
-        android:hint="비밀번호를 입력해주세요"
+        android:hint="비밀번호를 입력해주세요(6자리 이상)"
         android:textSize="16sp"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
