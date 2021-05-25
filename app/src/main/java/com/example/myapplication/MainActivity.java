@@ -1,27 +1,31 @@
 package com.example.myapplication;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.ListResult;
-import com.google.firebase.storage.StorageReference;
-import com.bumptech.glide.Glide;
 
-import java.time.Instant;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -29,7 +33,15 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView listview;
     private MyAdapter adapter;
     private FirebaseStorage storage = FirebaseStorage.getInstance();
-    TextView textView;
+
+    //상영시간표
+    private ListView myListView;
+    private final ArrayList<String> myList = new ArrayList<>();
+
+    private final DatabaseReference fireBaseRootRef = FirebaseDatabase
+            .getInstance()
+            .getReference();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +53,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
+        });
+
+        findViewById(R.id.buy).setOnClickListener(view -> {
+            Intent intent = new Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.lottecinema.co.kr/NLCHS/Ticketing")
+            );
+            startActivity(intent);
         });
 
         listview = findViewById(R.id.list);
@@ -88,6 +108,37 @@ public class MainActivity extends AppCompatActivity {
         MyListDecoration decoration = new MyListDecoration();
         listview.addItemDecoration(decoration);
 
+
+        //상영 시간표
+        myListView = findViewById(R.id.my_list);
+        MyListAdapter myListAdapter = new MyListAdapter(this, myList);
+        myListView.setAdapter(myListAdapter);
+        //**가산 상영시간표 추가
+        DatabaseReference gasanRef = fireBaseRootRef
+                .child("Gasan");
+
+        //가산 상영시간표 데이터 추가.
+        gasanRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Map<String, Object> gasanInfo = (Map<String, Object>) snapshot.getValue();
+
+                for (String key : gasanInfo.keySet()) {
+                    if(key.contains("join")) {
+
+                        myList.add(String.valueOf(gasanInfo.get(key)));
+                    }
+                }
+
+                myListAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     private OnClickListener onClickItem = new OnClickListener() {
@@ -97,4 +148,5 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, str, Toast.LENGTH_SHORT).show();
         }
     };
+
 }
