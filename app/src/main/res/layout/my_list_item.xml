@@ -8,6 +8,12 @@
         android:id="@+id/movieName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginBottom="30dp"
+        android:textColor="@color/black"
+        android:translationY="30dp"
+        android:textSize="20sp"
         />
 
 </LinearLayout>
