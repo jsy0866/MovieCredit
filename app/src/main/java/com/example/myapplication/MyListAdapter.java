@@ -7,17 +7,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.google.firebase.database.DatabaseReference;
+import com.example.myapplication.dto.MovieSchedule;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyListAdapter extends BaseAdapter {
 
     Context mContext;
     LayoutInflater mLayoutInflater;
-    ArrayList<String> myList;
+    List<MovieSchedule> myList;
 
-    public MyListAdapter(Context mContext, ArrayList<String> myList) {
+    public MyListAdapter(Context mContext, List<MovieSchedule> myList) {
         this.mContext = mContext;
         this.myList = myList == null ? new ArrayList<>() : myList;
         mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -43,8 +44,10 @@ public class MyListAdapter extends BaseAdapter {
         //상영시간표
         View view = mLayoutInflater.inflate(R.layout.my_list_item, null);
         TextView movieName = view.findViewById(R.id.movieName);
-
-        movieName.setText(myList.get(position));
+        TextView movieDeadLine = view.findViewById(R.id.movieDeadLine);
+        MovieSchedule movieSchedule = myList.get(position);
+        movieName.setText(movieSchedule.getMovieName());
+        movieDeadLine.setText(movieSchedule.getFormattingDeadLine());
         return view;
     }
 

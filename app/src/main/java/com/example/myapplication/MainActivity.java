@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.dto.MovieSchedule;
+import com.google.android.gms.common.util.MapUtils;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     //상영시간표
     private ListView myListView;
-    private final ArrayList<String> myList = new ArrayList<>();
+    private final List<MovieSchedule> myList = new ArrayList<>();
 
     private final DatabaseReference fireBaseRootRef = FirebaseDatabase
             .getInstance()
@@ -123,14 +125,18 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Map<String, Object> gasanInfo = (Map<String, Object>) snapshot.getValue();
 
-                for (String key : gasanInfo.keySet()) {
-                    if(key.contains("join")) {
+                if(gasanInfo != null) {
+                    for (String key : gasanInfo.keySet()) {
+                        if(key.contains("join")) {
+                            Integer deadLine = Integer.valueOf(key.substring(key.length() - 1));
+                            String movieName = String.valueOf(gasanInfo.get(key));
+                            myList.add(new MovieSchedule(deadLine, movieName));
 
-                        myList.add(String.valueOf(gasanInfo.get(key)));
+                        }
                     }
-                }
 
-                myListAdapter.notifyDataSetChanged();
+                    myListAdapter.notifyDataSetChanged();
+                }
             }
 
             @Override
