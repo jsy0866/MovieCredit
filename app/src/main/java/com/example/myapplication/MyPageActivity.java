@@ -40,7 +40,6 @@ public class MyPageActivity extends AppCompatActivity implements OnItemClickList
     private ArrayAdapter<String> mAaString;
 
 
-
     @Override
 
     public void onCreate(Bundle savedInstanceState)

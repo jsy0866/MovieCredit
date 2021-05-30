@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), MyPageActivity.class));
+            }
+        });
+
+        findViewById(R.id.time).setOnClickListener(new OnClickListener() {      //상영시간표 누르면 영화관 선택 페이지 나오게
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), MyTimeActivity.class));
             }
         });
 

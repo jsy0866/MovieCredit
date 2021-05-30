@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                 String id = id_login.getText().toString().trim();
                 String password = pw_login.getText().toString().trim();
 
-                 firebaseAuth.signInWithEmailAndPassword(id, password)
+                firebaseAuth.signInWithEmailAndPassword(id, password)
                         .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
