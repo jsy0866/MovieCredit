@@ -65,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        findViewById(R.id.time).setOnClickListener(new OnClickListener() {      //상영시간표 누르면 영화관 선택 페이지 나오게
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), MyTimeActivity.class));
+            }
+        });
+
         listview = findViewById(R.id.list);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         listview.setLayoutManager(layoutManager);
