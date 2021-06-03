@@ -76,7 +76,7 @@ public class TimeListActivity extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             LottecinemaMovie.PlaySeqs playList = getNowLotteCinemaMovies().getPlaySeqs();
 
-            //movieName에 얻은 영화이름을 추가
+            //movieName에 얻은 영화이름을 추가, movieList에 추가
             for (String movieName : playList.getMovieNames()) {
                 movieList.add(new MovieClass(movieName, playList.movieStartTimesBy(movieName)));
             }

@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,4 +54,15 @@ public class MovieTimeAdapter extends RecyclerView.Adapter<MovieTimeAdapter.Item
         // RecyclerView의 총 개수
         return times.size();
     }
+
+//    //아이템 우측간격 조절
+//    public static class Decoration extends RecyclerView.ItemDecoration {
+//
+//        @Override
+//        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+//            super.getItemOffsets(outRect, view, parent, state);
+//            outRect.right = 15;
+//        }
+//    }
+
 }

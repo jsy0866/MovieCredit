@@ -30,10 +30,10 @@ public class MyTimeListAdapter extends RecyclerView.Adapter<MyTimeListAdapter.It
         private final RecyclerView movieTimesView;
 
 
-        public ItemViewHolder(View itemView0) {
-            super(itemView0);
-            textView_title = (TextView)itemView0.findViewById(R.id.textView_title);
-            movieTimesView = (RecyclerView)itemView0.findViewById(R.id.movie_time_list_view);
+        public ItemViewHolder(View itemView) {
+            super(itemView);
+            textView_title = (TextView)itemView.findViewById(R.id.textView_title);
+            movieTimesView = (RecyclerView)itemView.findViewById(R.id.movie_time_list_view);
         }
 
     }
@@ -58,7 +58,7 @@ public class MyTimeListAdapter extends RecyclerView.Adapter<MyTimeListAdapter.It
         // Item을 하나, 하나 보여주는(bind 되는) 함수
         holder.textView_title.setText(String.valueOf(mList.get(position).getTitle()));
         holder.movieTimesView.setAdapter(new MovieTimeAdapter(mList.get(position).getTimes(), mContext));
-        /*holder.movieTimesView.addItemDecoration(new Decoration());*/
+//        holder.movieTimesView.addItemDecoration(new Decoration());
         holder.movieTimesView.setLayoutManager(new LinearLayoutManager(mContext,  LinearLayoutManager.HORIZONTAL, false));
 
     }
@@ -70,16 +70,15 @@ public class MyTimeListAdapter extends RecyclerView.Adapter<MyTimeListAdapter.It
         return mList.size();
     }
 
-    /*//아이템 우측간격 조절
-    public static class Decoration extends RecyclerView.ItemDecoration {
-
-        @Override
-        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-            super.getItemOffsets(outRect, view, parent, state);
-            outRect.right = 15;
-        }
-    }
-*/
+//    //아이템 우측간격 조절
+//    public static class Decoration extends RecyclerView.ItemDecoration {
+//
+//        @Override
+//        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+//            super.getItemOffsets(outRect, view, parent, state);
+//            outRect.right = 15;
+//        }
+//    }
 
 }
 
