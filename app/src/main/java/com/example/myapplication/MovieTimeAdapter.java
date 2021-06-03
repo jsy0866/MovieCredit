@@ -55,14 +55,6 @@ public class MovieTimeAdapter extends RecyclerView.Adapter<MovieTimeAdapter.Item
         return times.size();
     }
 
-//    //아이템 우측간격 조절
-//    public static class Decoration extends RecyclerView.ItemDecoration {
-//
-//        @Override
-//        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-//            super.getItemOffsets(outRect, view, parent, state);
-//            outRect.right = 15;
-//        }
-//    }
+
 
 }
