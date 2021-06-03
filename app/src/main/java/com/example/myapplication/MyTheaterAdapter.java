@@ -39,6 +39,7 @@ public class MyTheaterAdapter extends RecyclerView.Adapter<MyTheaterAdapter.View
                 }
             });
 
+
         }
     }
 

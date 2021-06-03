@@ -9,7 +9,6 @@ public class LottecinemaMovieItem {
 
     private String StartTime;
 
-
     //같은 값이 존재한다면 출력, 없으면 false
     public boolean isSame(String movieName) {
         if(MovieNameKR == null) {
@@ -42,6 +41,4 @@ public class LottecinemaMovieItem {
     public void setStartTime(String startTime) {
         StartTime = startTime;
     }
-
-
 }

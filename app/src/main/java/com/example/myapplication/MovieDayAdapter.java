@@ -24,7 +24,7 @@ public class MovieDayAdapter extends RecyclerView.Adapter<MovieDayAdapter.Holder
                 now.plusDays(1L),
                 now.plusDays(2L),
                 now.plusDays(3L),
-                now.plusDays(4L)        //당일로부터 +4일까지
+                now.plusDays(4L)    //당일로부터 +4일까지
         );
     }
 

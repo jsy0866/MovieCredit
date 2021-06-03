@@ -2,8 +2,10 @@ package com.example.myapplication;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TimeListActivity extends AppCompatActivity {
-    public RecyclerView movieTitleView;
+    public RecyclerView recycler1;
     private RecyclerView movieDaysView;
     public ArrayList<MovieClass> movieList = new ArrayList<>();
     private final Gson gson = new Gson();
@@ -33,7 +35,7 @@ public class TimeListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_list);
 
-        movieTitleView = findViewById(R.id.list_movie);
+        recycler1= findViewById(R.id.list_movie);
         movieDaysView = findViewById(R.id.list_day);
 
         //날짜
@@ -41,12 +43,10 @@ public class TimeListActivity extends AppCompatActivity {
         movieDaysView.setLayoutManager(new LinearLayoutManager(this,  LinearLayoutManager.HORIZONTAL, false));
         movieDaysView.setAdapter(movieDayAdapter);
         movieDaysView.addItemDecoration(new MyListDecoration());
-
         //AsyncTask 작동시킴(파싱)
         new Description(LocalDate.now().toString()).execute();
 
     }
-
     public class Description extends AsyncTask<Void, Void, Void> {
 
         //진행바표시
@@ -79,20 +79,19 @@ public class TimeListActivity extends AppCompatActivity {
             //movieName에 얻은 영화이름을 추가
             for (String movieName : playList.getMovieNames()) {
                 movieList.add(new MovieClass(movieName, playList.movieStartTimesBy(movieName)));
-
             }
 
             return null;
         }
 
-       // AsyncTask의 모든 작업이 완료된 후 가장 마지막에 한 번 호출. doInBackground() 함수의 최종 값을 받기 위해 사용
+        // AsyncTask의 모든 작업이 완료된 후 가장 마지막에 한 번 호출. doInBackground() 함수의 최종 값을 받기 위해 사용
         @Override
         protected void onPostExecute(Void result) {
             //ArraList를 인자로 해서 어답터와 연결한다.
             MyTimeListAdapter myAdapter = new MyTimeListAdapter(movieList, TimeListActivity.this);
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-            movieTitleView.setLayoutManager(layoutManager);
-            movieTitleView.setAdapter(myAdapter);
+            recycler1.setLayoutManager(layoutManager);
+            recycler1.setAdapter(myAdapter);
 
             progressDialog.dismiss();
         }
@@ -100,7 +99,7 @@ public class TimeListActivity extends AppCompatActivity {
 
         @SuppressLint("NewApi")
         private LottecinemaMovie getNowLotteCinemaMovies() {
-            Map<String, String> requestBody = new HashMap<>();  //매개변수 등록
+            Map<String, String> requestBody = new HashMap<>();  //해쉬맵 생성
             requestBody.put("MethodName", "GetPlaySequence");   //key-value 형태로 requestBody에 저장
             requestBody.put("channelType", "HO");
             requestBody.put("osType", "W");
@@ -109,11 +108,9 @@ public class TimeListActivity extends AppCompatActivity {
             requestBody.put("cinemaID", "1|0001|1013");
             requestBody.put("representationMovieCode", "");
 
-
-        //티켓팅(POST)
             try {
                 Connection.Response execute = Jsoup
-                        .connect("https://www.lottecinema.co.kr/LCWS/Ticketing/TicketingData.aspx")     //Jsoup의 Conection 메소드를 이용해 '티켓팅'페이지에 접속해 Document를 얻어낸다.
+                        .connect("https://www.lottecinema.co.kr/LCWS/Ticketing/TicketingData.aspx") //Jsoup의 Conection 메소드를 이용해 '티켓팅'페이지에 접속해 Document를 얻어낸다.
                         .method(Connection.Method.POST)
                         .header("Content-Type", " multipart/form-data")
                         .userAgent("Mozilla/5.0")
