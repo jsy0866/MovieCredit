@@ -99,12 +99,14 @@ public class TimeListActivity extends AppCompatActivity {
 
         @SuppressLint("NewApi")
         private LottecinemaMovie getNowLotteCinemaMovies() {
-            Map<String, String> requestBody = new HashMap<>();  //해쉬맵 생성
-            requestBody.put("MethodName", "GetPlaySequence");   //key-value 형태로 requestBody에 저장
+            //해쉬맵 생성 key-value 형태로 requestBody에 저장
+            Map<String, String> requestBody = new HashMap<>();
+            requestBody.put("MethodName", "GetPlaySequence");
             requestBody.put("channelType", "HO");
             requestBody.put("osType", "W");
             requestBody.put("osVersion", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.272 Whale/2.9.117.22 Safari/537.36");
-            requestBody.put("playDate", LocalDate.now().toString());    //Date를 사용해 날짜를 불러옴
+            //Date를 사용해 날짜를 불러옴
+            requestBody.put("playDate", LocalDate.now().toString());
             requestBody.put("cinemaID", "1|0001|1013");
             requestBody.put("representationMovieCode", "");
 
@@ -114,7 +116,8 @@ public class TimeListActivity extends AppCompatActivity {
                         .method(Connection.Method.POST)
                         .header("Content-Type", " multipart/form-data")
                         .userAgent("Mozilla/5.0")
-                        .data("ParamList", gson.toJson(requestBody))    //자바 객체를 json 표현식으로 변환
+                        //자바 객체를 json 표현식으로 변환
+                        .data("ParamList", gson.toJson(requestBody))
                         .execute();
 
                 return gson.fromJson(execute.body(), LottecinemaMovie.class);

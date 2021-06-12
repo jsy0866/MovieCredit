@@ -33,19 +33,22 @@ public class LottecinemaMovie {
         }
 
         public Set<String> getMovieNames() {
-            Set<String> movieNames = new HashSet<>();   //해쉬셋 선언(movieNames)
+            //해쉬셋 선언(movieNames)
+            Set<String> movieNames = new HashSet<>();
+            //해쉬셋 값 추가(해쉬셋에 얻은 영화이름을 추가)
             for (LottecinemaMovieItem item : Items) {
-                movieNames.add(item.getMovieNameKR());  //해쉬셋 값 추가(해쉬셋에 얻은 영화이름을 추가)
+                movieNames.add(item.getMovieNameKR());
             }
 
             return movieNames;
         }
 
         public ArrayList<String> movieStartTimesBy(String movieName) {
-            ArrayList<String> movieTimes = new ArrayList<>();   //ArrayList 선언(movieTimes)
+            ArrayList<String> movieTimes = new ArrayList<>();
             for (LottecinemaMovieItem item : Items) {
-                if(item.isSame(movieName)) {    //영화이름이 롯데시네마아이템과 같을경우
-                    movieTimes.add(item.getStartTime()); //해쉬셋 값 추가(해쉬셋에 얻은 영화시간을 추가)
+                //영화이름이 롯데시네마아이템과 같을경우 해쉬셋 값 추가(해쉬셋에 얻은 영화시간을 추가)
+                if(item.isSame(movieName)) {
+                    movieTimes.add(item.getStartTime());
                 }
             }
 

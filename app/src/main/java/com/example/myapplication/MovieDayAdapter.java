@@ -18,13 +18,15 @@ public class MovieDayAdapter extends RecyclerView.Adapter<MovieDayAdapter.Holder
 
     @SuppressLint("NewApi")
     public MovieDayAdapter() {
-        LocalDate now = LocalDate.now();    //당일 기준으로 날짜 가져오기
+        //당일 기준으로 날짜 가져오기
+        LocalDate now = LocalDate.now();
+        //당일로부터 +4일까지
         this.days = Arrays.asList(
                 now,
                 now.plusDays(1L),
                 now.plusDays(2L),
                 now.plusDays(3L),
-                now.plusDays(4L)    //당일로부터 +4일까지
+                now.plusDays(4L)
         );
     }
 

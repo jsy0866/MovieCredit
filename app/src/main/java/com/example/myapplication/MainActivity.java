@@ -65,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        findViewById(R.id.time).setOnClickListener(new OnClickListener() {      //상영시간표 누르면 영화관 선택 페이지 나오게
+        //상영시간표 누르면 영화관 선택 페이지 나오게
+        findViewById(R.id.time).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), MyTimeActivity.class));

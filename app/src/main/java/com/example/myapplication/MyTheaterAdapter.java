@@ -33,8 +33,10 @@ public class MyTheaterAdapter extends RecyclerView.Adapter<MyTheaterAdapter.View
                 public void onClick(View v) {
                     int pos = getAdapterPosition() ;
                     if (pos != RecyclerView.NO_POSITION) {
-                        intent = new Intent(v.getContext(), TimeListActivity.class);    //activity 전환을 위해 intent 사용
-                        v.getContext().startActivity(intent);   //액티비티 전환 실시
+                        //activity 전환을 위해 intent 사용
+                        intent = new Intent(v.getContext(), TimeListActivity.class);
+                        //액티비티 전환 실시
+                        v.getContext().startActivity(intent);
                     }
                 }
             });
