@@ -112,7 +112,8 @@ public class TimeListActivity extends AppCompatActivity {
 
             try {
                 Connection.Response execute = Jsoup
-                        .connect("https://www.lottecinema.co.kr/LCWS/Ticketing/TicketingData.aspx") //Jsoup의 Conection 메소드를 이용해 '티켓팅'페이지에 접속해 Document를 얻어낸다.
+                        //Jsoup의 Conection 메소드를 이용해 '티켓팅'페이지에 접속해 Document를 얻어낸다.
+                        .connect("https://www.lottecinema.co.kr/LCWS/Ticketing/TicketingData.aspx")
                         .method(Connection.Method.POST)
                         .header("Content-Type", " multipart/form-data")
                         .userAgent("Mozilla/5.0")
