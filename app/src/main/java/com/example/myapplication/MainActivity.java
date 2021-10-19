@@ -106,10 +106,10 @@ public class MainActivity extends AppCompatActivity {
 //        });
 
         ArrayList<String> strList = new ArrayList<>();
-        strList.add("https://firebasestorage.googleapis.com/v0/b/moviecredit-b50c2.appspot.com/o/Main-MovieImage%2F001.jpg?alt=media&token=2504a30e-bfc5-4e06-8a0e-92e58f9cf6ef");
-        strList.add("https://firebasestorage.googleapis.com/v0/b/moviecredit-b50c2.appspot.com/o/Main-MovieImage%2F002.jpg?alt=media&token=fccff688-a2ae-4647-b757-5759299a3a98");
-        strList.add("https://firebasestorage.googleapis.com/v0/b/moviecredit-b50c2.appspot.com/o/Main-MovieImage%2F003.jpg?alt=media&token=502936d8-ab86-4e08-8c4d-2b6f75128e6e");
-        strList.add("https://firebasestorage.googleapis.com/v0/b/moviecredit-b50c2.appspot.com/o/Main-MovieImage%2F004.jpg?alt=media&token=8d0c0095-780d-47dd-ba51-d3c02e7d971f");
+        strList.add("https://firebasestorage.googleapis.com/v0/b/moviecredit-b50c2.appspot.com/o/Main-MovieImage%2F%EB%B2%A0%EB%86%882.jpg?alt=media&token=457911c5-60fd-4d73-8981-a787f333fec7");
+        strList.add("https://firebasestorage.googleapis.com/v0/b/moviecredit-b50c2.appspot.com/o/Main-MovieImage%2F%EA%B8%B0%EC%A0%81.jpg?alt=media&token=9f28ab3b-db8a-4cb3-98b0-b298746f9e06");
+        strList.add("https://firebasestorage.googleapis.com/v0/b/moviecredit-b50c2.appspot.com/o/Main-MovieImage%2F%EB%B3%B4%EC%9D%B4%EC%8A%A4.jpg?alt=media&token=ca1f39df-4921-46ff-ba42-b23690976b79");
+        strList.add("https://firebasestorage.googleapis.com/v0/b/moviecredit-b50c2.appspot.com/o/Main-MovieImage%2F007%20%EB%85%B8%20%ED%83%80%EC%9E%84%20%ED%88%AC%20%EB%8B%A4%EC%9D%B4.jpg?alt=media&token=0863ee30-8e50-4388-b64c-e16e398d1cf5");
 
 
         adapter = new MyAdapter(this, strList, onClickItem);
